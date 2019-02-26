@@ -21,7 +21,7 @@ namespace MyApp.Models
 
         [Display(Name = "کلمه عبور")]
         [Required(ErrorMessage = "مقداری برای {0} قرار دهید")]
-        [MaxLength(6, ErrorMessage = "نباید بیشتر از {1} کارکتر باشد")]
+        [MaxLength(80, ErrorMessage = "نباید بیشتر از {1} کارکتر باشد")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 

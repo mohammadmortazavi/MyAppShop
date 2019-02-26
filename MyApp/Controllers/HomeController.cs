@@ -13,8 +13,8 @@ namespace MyApp.Controllers
         public ActionResult Index()
         {
             DatabaseContext db = new DatabaseContext();
-            db.Users.ToList();
-            return View();
+           
+            return View(db.Roles.ToList());
         }
     }
 }
