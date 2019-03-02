@@ -37,7 +37,7 @@ namespace MyApp.Controllers
                         Password = haspass,
                         RoleId = db.Roles.Max(r => r.Id),
                         CodeNumber = mycode.ToString()
-                };
+                    };
                     db.Users.Add(user);
                     db.SaveChanges();
 
@@ -45,14 +45,83 @@ namespace MyApp.Controllers
                     sms.Send(register.Mobile, "ثبت نام شما در فروشگاه انجام شد" + Environment.NewLine + "کد فعال سازی شما " + mycode.ToString());
                     return RedirectToAction("");
                 }
-                
-            else
-            {
+
+                else
+                {
                     ModelState.AddModelError("Mobile", "شما فبلا ثبت نام کردید");
 
+                }
             }
-        }
             return View(register);
+        }
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel login)
+        {
+            if (ModelState.IsValid)
+            {
+                string hashpass = FormsAuthentication.HashPasswordForStoringInConfigFile(login.Password, "MD5");
+                var user = db.Users.FirstOrDefault(u => u.Mobile == login.Mobile && u.Password == hashpass);
+                if (user != null)
+                {
+                    FormsAuthentication.SetAuthCookie(login.Mobile, true);
+                    if (user.IsActive)
+                    {
+
+                        if (user.Roles.RoleName == "admin")
+                        {
+                            return Redirect("/AdminPanel/Admin/Index");
+
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "UserPanel");
+                        }
+
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "UserPanel");
+                    }
+
+                }
+                else
+                {
+                    ModelState.AddModelError("Password", "مشخصات کاربری اشتباه وارد شده است");
+                }
+            }
+            return View();
+
+        }
+
+        public ActionResult Activate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+
+        public ActionResult Activate(ActiveViewModel active)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = db.Users.FirstOrDefault(u => u.Mobile == User.Identity.Name && u.CodeNumber == active.CodeNumber);
+                if (user !=null)
+                {
+                    user.IsActive = true;
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "UserPanel");
+                }
+                else
+                {
+                    ModelState.AddModelError("CodeNumber", "کد تایید شما نامتعبر می باشد");
+                }
+            }
+            return View(active);
+        }
     }
-}
 }
