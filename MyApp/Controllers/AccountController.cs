@@ -110,9 +110,12 @@ namespace MyApp.Controllers
             if (ModelState.IsValid)
             {
                 var user = db.Users.FirstOrDefault(u => u.Mobile == User.Identity.Name && u.CodeNumber == active.CodeNumber);
-                if (user !=null)
+                if (user != null)
                 {
+                    Random rand = new Random();
+                    int mycode = rand.Next(100000, 900000);
                     user.IsActive = true;
+                    user.CodeNumber.ToString();
                     db.SaveChanges();
                     return RedirectToAction("Index", "UserPanel");
                 }
@@ -123,5 +126,71 @@ namespace MyApp.Controllers
             }
             return View(active);
         }
+
+
+        public ActionResult CheckMobile( )
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CheckMobile(CheckMobileViewModel check)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var user = db.Users.FirstOrDefault(u => u.Mobile == check.Mobile);
+
+                if (user !=null)
+                {
+                    SmsSender sms = new SmsSender();
+                    sms.Send(check.Mobile, "کد تایید شما برای تغییر کلمه عبور " + user.CodeNumber + "می باشد");
+
+                    return RedirectToAction("ForgetPassword");
+                }
+                else
+                {
+                    ModelState.AddModelError("Mobile", "شما هنوز ثبت نام نکردید");
+                }
+
+            }
+
+            return View(check);
+        }
+        public ActionResult ForgetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgetPassword(ForgetPasswordViewModel forget)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = db.Users.FirstOrDefault(u => u.CodeNumber == forget.CodeNumber);
+
+                if (user !=null)
+                {
+                    string hashpass = FormsAuthentication.HashPasswordForStoringInConfigFile(forget.Password ,"MD5");
+
+                    Random rand = new Random();
+                    string mycode = rand.Next(100000, 900000).ToString();
+                    user.Password = hashpass;
+                    user.CodeNumber = mycode.ToString();
+                    db.SaveChanges();
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    ModelState.AddModelError("CodeNumber", "کد تایید شما معتبر نمی باشد");
+                }
+
+
+            }
+            return View(forget);
+        }
+
+
     }
 }

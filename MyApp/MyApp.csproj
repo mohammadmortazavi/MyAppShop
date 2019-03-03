@@ -150,6 +150,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\UserPanel\Index.cshtml" />
     <Content Include="Views\Account\Activate.cshtml" />
+    <Content Include="Views\Account\CheckMobile.cshtml" />
+    <Content Include="Views\Account\ForgetPassword.cshtml" />
     <None Include="Web References\MyAppSmsService\Send.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
