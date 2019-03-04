@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width-device,initial-scale-1" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/AdminStyle.css" rel="stylesheet" />
+</head>
+<body class="container-fluid">
+    <div class="row topnav">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
+            <a href="/AdminPanel/Admin" style="font-size:20px;"> پنل مدیریت</a>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="direction:ltr">
+            <a href="/Account/SignOut"><span class="fa fa-sign-out" data-toggle="tooltip" data-placement="bottom" title="خروج"></span></a>
+            <a href="/"> <span class="fa fa-eye" data-toggle="tooltip" data-placement="bottom" title="خانه"></span></a>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="sidebar">
+            <a href="#" class="active"><span class="fa fa-user"> کاربران</span></a>
+            <a href="#"><span class="fa fa-mobile"> تنظیمات پیامک</span></a>
+            <a href="#"><span class="fa fa-cogs"> تنظیمات سایت</span></a>
+            <a href="#"><span class="fa fa-phone"> تنظیمات تماس</span></a>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+
+
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap-rtl.min.js"></script>
+</body>
+</html>

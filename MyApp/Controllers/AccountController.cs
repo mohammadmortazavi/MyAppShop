@@ -191,6 +191,12 @@ namespace MyApp.Controllers
             return View(forget);
         }
 
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
+
+        }
 
     }
 }

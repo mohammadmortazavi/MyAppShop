@@ -50,6 +50,15 @@
                 db.SaveChanges();
 
                 }
+            if (db.Settings.Count()==0)
+            {
+                Setting set = new Setting()
+                {
+                    Name = "فروشگاه اینترنتی فشن"
+                };
+                db.Settings.Add(set);
+                db.SaveChanges();
+            }
         }
     }
 }

@@ -16,6 +16,7 @@ namespace MyApp.Models
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserAddress> UserAddresses { get; set; }
 
+        public DbSet<Setting>Settings { get; set; }
 
     }
 
