@@ -9,14 +9,18 @@ namespace MyApp.Classes
 {
     public class SmsSender
     {
+       
+        
         public void Send(string To, string Body)
         {
+            DatabaseContext db = new DatabaseContext();
+            var setting = db.Settings.FirstOrDefault();
             MyAppSmsService.Send send = new MyAppSmsService.Send();
             long[] RecIdArray = null;
             byte[] RecStatusArray = null;
 
             string[] StrArray = new string[] { To.ToString() };
-            int RectId = send.SendSms("Meeting2", "123456", "30007477", StrArray, Body, false, ref RecStatusArray, ref RecIdArray);
+            int RectId = send.SendSms(setting.UserSms, setting.PassSms, setting.SenderSms, StrArray, Body, false, ref RecStatusArray, ref RecIdArray);
         }
     }
 }

@@ -17,8 +17,13 @@ namespace MyApp.Models
 
         public string Name { get; set; }
         [Display(Name = "توضیحات")]
+        [DataType(DataType.MultilineText)]
+
         public string Des { get; set; }
         [Display(Name = "کلمات کلیدی")]
+
+        [DataType(DataType.MultilineText)]
+
         public string Key { get; set; }
         [Display(Name = "لوگو")]
         public string Logo { get; set; }
@@ -35,7 +40,7 @@ namespace MyApp.Models
         [Display(Name = "فرستنده پیامک")]
         [MaxLength(15, ErrorMessage = "نباید بیشتر از {1} کارکتر باشد")]
 
-        public string SendSms { get; set; }
+        public string SenderSms { get; set; }
 
         [Display(Name = "فعالسازی کاربر پس از ثبت نام")]
         public bool ActiveUser { get; set; }
