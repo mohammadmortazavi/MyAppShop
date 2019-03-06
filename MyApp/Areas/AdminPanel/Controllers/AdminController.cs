@@ -79,5 +79,26 @@ namespace MyApp.Areas.AdminPanel.Controllers
             db.SaveChanges();
             return Redirect("/AdminPanel/Admin/Index");
         }
+
+        public ActionResult FactorSetting()
+        {
+            var set1 = db.Settings.FirstOrDefault();
+            return View(set1);
+        }
+
+        [HttpPost]
+
+        public ActionResult FactorSetting(Setting set)
+        {
+            var set2 = db.Settings.FirstOrDefault();
+            set2.TaxPercent = set.TaxPercent;
+            set2.ServicePric = set.ServicePric;
+            set2.ServiceBetween = set.ServiceBetween;
+            db.SaveChanges();
+            return Redirect("/AdminPanel/Admin/Index");
+        }
+
+
+       
     }
 }

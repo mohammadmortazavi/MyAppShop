@@ -18,6 +18,9 @@ namespace MyApp.Models
 
         public DbSet<Setting>Settings { get; set; }
 
+
+        public DbSet<SocialNetwork> SocialNetworks { get; set; }
+
     }
 
 }
