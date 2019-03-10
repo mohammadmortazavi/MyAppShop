@@ -24,7 +24,7 @@ namespace MyApp.Models
         [MaxLength(50, ErrorMessage = "نباید بیشتر از {1} کارکتر باشد")]
         public string City { get; set; }
 
-        [Display(Name = "استان")]
+        [Display(Name = "آدرس")]
         [Required(ErrorMessage = "مقداری برای {0} قرار دهید")]
         [DataType(DataType.MultilineText)]
         public string Address { get; set; }

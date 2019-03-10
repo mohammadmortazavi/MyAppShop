@@ -10,27 +10,55 @@
     <link href="~/Content/bootstrap-rtl.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/AdminStyle.css" rel="stylesheet" />
+    @using MyApp.Models
+    @{ 
+        DatabaseContext db = new DatabaseContext();
+        var user = db.Users.FirstOrDefault(u => u.Mobile == User.Identity.Name);
+    }
 </head>
 <body class="container-fluid">
     <div class="row topnav">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-            <a href="/AdminPanel/Admin" style="font-size:20px;"> پنل مدیریت</a>
+            @if (user.Roles.RoleName == "admin")
+            {
+                <a href="/AdminPanel/Admin" style="font-size:20px;"> پنل مدیریت</a>
+
+            }
+            else
+            {
+                <a href="/UserPanel/Admin" style="font-size:20px;"> پنل کاربری</a>
+
+            }
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="direction:ltr">
             <a href="/Account/SignOut"><span class="fa fa-sign-out" data-toggle="tooltip" data-placement="bottom" title="خروج"></span></a>
             <a href="/"> <span class="fa fa-eye" data-toggle="tooltip" data-placement="bottom" title="خانه"></span></a>
+            @if (user.Roles.RoleName == "admin")
+            {
+                <a href="/UserPanel/ChangePassword"> <span class="fa fa-key" data-toggle="tooltip" data-placement="bottom" title="تغییر رمز"></span></a>
+            }
         </div>
         
     </div>
     <div class="row">
         <div class="sidebar">
-            <a href="#" class="active"><span class="fa fa-user"> کاربران</span></a>
-            <a href="/AdminPanel/Admin/SmsSetting"><span class="fa fa-mobile"> تنظیمات پیامک</span></a>
-            <a href="/AdminPanel/Admin/SiteSetting"><span class="fa fa-cogs"> تنظیمات سایت</span></a>
-            <a href="/AdminPanel/Admin/CallSetting"><span class="fa fa-phone"> تنظیمات تماس</span></a>
-            <a href="/AdminPanel/Admin/FactorSetting"><span class="fa fa-money"> تنظیمات فاکتور</span></a>
-            <a href="/AdminPanel/SocialNetworks/Index"><span class="fa fa-facebook"> تنظیمات شبکه اجتماعی</span></a>
+            @if (user.Roles.RoleName == "admin")
+            {
+                <a href="/AdminPanel/Users" class="active"><span class="fa fa-user"> کاربران</span></a>
+                <a href="/AdminPanel/Admin/SmsSetting"><span class="fa fa-mobile"> تنظیمات پیامک</span></a>
+                <a href="/AdminPanel/Admin/SiteSetting"><span class="fa fa-cogs"> تنظیمات سایت</span></a>
+                <a href="/AdminPanel/Admin/CallSetting"><span class="fa fa-phone"> تنظیمات تماس</span></a>
+                <a href="/AdminPanel/Admin/FactorSetting"><span class="fa fa-money"> تنظیمات فاکتور</span></a>
+                <a href="/AdminPanel/SocialNetworks/Index"><span class="fa fa-facebook"> تنظیمات شبکه اجتماعی</span></a>
 
+            }
+            else
+            {
+                <a href="/UserAddresses/Index" class="active"><span class="fa fa-address-book"> آدرس ها</span></a>
+                <a href="/UserPanel/ChangePassword" ><span class="fa fa-key"> تغییر کلمه عبور</span></a>
+
+
+            }
 
         </div>
     </div>

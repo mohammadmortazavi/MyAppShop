@@ -78,4 +78,26 @@ namespace MyApp.Models
         [Compare("Password", ErrorMessage = "کلمه عبور همخانی ندارد")]
         public string RePassword { get; set; }
     }
+
+    public class ChangePasswordViewModel
+    {
+        [Display(Name = "کلمه عبور")]
+        [Required(ErrorMessage = "مقداری برای {0} قرار دهید")]
+        [MaxLength(80, ErrorMessage = "نباید بیشتر از {1} کارکتر باشد")]
+        [DataType(DataType.Password)]
+        public string OldPassword { get; set; }
+
+        [Display(Name = "  جدید کلمه عبور")]
+        [Required(ErrorMessage = "مقداری برای {0} قرار دهید")]
+        [MaxLength(80, ErrorMessage = "نباید بیشتر از {1} کارکتر باشد")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [Display(Name = "جدید تکرار کلمه عبور")]
+        [Required(ErrorMessage = "مقداری برای {0} قرار دهید")]
+        [MaxLength(80, ErrorMessage = "نباید بیشتر از {1} کارکتر باشد")]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "کلمه عبور همخانی ندارد")]
+        public string RePassword { get; set; }
+    }
 }

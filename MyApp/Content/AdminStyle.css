@@ -22,7 +22,7 @@
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
-        font-size: 20px;
+        font-size: 16px;
     }
 
         .topnav a:hover {
@@ -34,11 +34,11 @@
 .sidebar {
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: 190px;
     background-color: #333;
     position: fixed;
-    /*height: 100%;
-    overflow: auto;*/
+    height: 100%;
+    overflow: auto;
     overflow-y:scroll;
     height: 90%;
 }
@@ -64,9 +64,10 @@
         }
 
 div.content {
+    margin-top:auto;
     margin-right: 200px;
     padding: 1px 16px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 @media screen and (max-width:700px) {
