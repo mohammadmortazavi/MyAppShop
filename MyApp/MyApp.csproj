@@ -109,6 +109,7 @@
     <Content Include="Content\bootstrap-theme-rtl.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\SiteStyle.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -136,12 +137,15 @@
     <Content Include="Areas\AdminPanel\Views\Users\Edit.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Users\Index.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Users\ShowAddress.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\GenderGategories\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\GenderGategories\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\Account\log1.jpg" />
+    <Content Include="images\Logo\logo.png" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -155,6 +159,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\SiteScript.js" />
+    <Content Include="Videos\Fashion-Demo-2.mp4" />
     <Content Include="Web References\MyAppSmsService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -179,9 +185,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\AdminPanel\AdminPanelAreaRegistration.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\AdminController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\GenderGategoriesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\SocialNetworksController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\UsersController.cs" />
     <Compile Include="Controllers\UserAddressesController.cs" />
+    <Compile Include="Models\GenderGategory.cs" />
     <Compile Include="Models\SocialNetwork.cs" />
     <Compile Include="Classes\MyAppProvider.cs" />
     <Compile Include="Classes\SmsSender.cs" />
@@ -227,7 +235,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AdminPanel\Models\" />
-    <Folder Include="images\Logo\" />
+    <Folder Include="images\Banner\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

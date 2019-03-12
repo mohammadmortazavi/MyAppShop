@@ -19,7 +19,7 @@ namespace MyApp.Areas.AdminPanel.Controllers
         public ActionResult Index(string strsearch)
         {
             var users = db.Users.Include(u => u.Roles).ToList();
-            
+
             if (!String.IsNullOrEmpty(strsearch))
             {
                 users = users.Where(u => u.Mobile.Contains(strsearch)).ToList();
@@ -51,7 +51,7 @@ namespace MyApp.Areas.AdminPanel.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (!db.Users.Any(u =>u.Mobile == user.Mobile))
+                if (!db.Users.Any(u => u.Mobile == user.Mobile))
                 {
                     Random rand = new Random();
                     int mycode = rand.Next(100000, 900000);
@@ -74,7 +74,7 @@ namespace MyApp.Areas.AdminPanel.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.RoleId = new SelectList(db.Roles, "Id", "RoleTitel", user.RoleId);
+            ViewBag.RoleId = new SelectList(db.Roles, "Id", "RoleName", user.RoleId);
             return View(user);
         }
 
@@ -91,7 +91,7 @@ namespace MyApp.Areas.AdminPanel.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.RoleId = new SelectList(db.Roles, "Id", "RoleTitel", user.RoleId);
+            ViewBag.RoleId = new SelectList(db.Roles, "Id", "RoleName", user.RoleId);
             return View(user);
         }
 

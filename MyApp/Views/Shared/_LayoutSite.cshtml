@@ -1,12 +1,46 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html lang="fa">
 <head>
+    <title>@ViewBag.Title</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width-device,initial-scale-1" />
     <meta name="viewport" content="width=device-width" />
 
     <link href="~/Content/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/SiteStyle.css" rel="stylesheet" />
 </head>
 <body>
+    <div>
+        <video autoplay muted id="myVideo">
+            <source src="~/Videos/Fashion-Demo-2.mp4" type="video/mp4"  />
+        </video>
+
+    </div>
+    <div class="clearfix"> </div>
+
+    <div>
+        <nav class="main-nav-outer" id="test">
+            <div class="container">
+                <ul class="main-nav">
+                    <li><a href="/">صفحه اصلی</a></li>
+                    <li><a href="/">ورود/ عضویت </a></li>
+                    <li><a href="/">تماس </a></li>
+                    <li class="small-logo"><a href="/"><img src="~/images/Logo/logo.png" alt="" style="width:130px;" /></a></li>
+                    <li><a href="/">زنانـه  </a></li>
+                    <li><a href="/">مردانـه  </a></li>
+                    <li><a href="/">بچگانـه </a></li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+    </div>
+
     <div>
         @RenderBody()
     </div>
@@ -14,5 +48,6 @@
 
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/bootstrap-rtl.min.js"></script>
+    <script src="~/Scripts/SiteScript.js"></script>
 </body>
 </html>

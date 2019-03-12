@@ -20,6 +20,7 @@ namespace MyApp.Models
 
 
         public DbSet<SocialNetwork> SocialNetworks { get; set; }
+        public DbSet<GenderGategory> GenderGategories { get; set; }
 
     }
 

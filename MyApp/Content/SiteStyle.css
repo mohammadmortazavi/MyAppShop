@@ -1,0 +1,321 @@
+﻿
+/*  General Styling
+/*-----------------------------------------------------------------------------------*/
+
+body {
+    direction: rtl;
+    background: #ffffff;
+    color: #898989;
+    font-family: 'B Yekan', 'B Koodak',Tahoma;
+    font-size: 12px;
+    font-weight: bold;
+    overflow-x: hidden;
+    margin: 0 auto;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+nav ul li a {
+    padding: 2px 0 0 0;
+    position: relative;
+    display: block;
+    /*font-size: 12px;*/
+    color: #999999;
+    letter-spacing: 0.1em;
+    /*font-weight: 500;*/
+    line-height: 14px;
+    text-transform: uppercase;
+    -moz-transition: all 0.5s ease-in-out 0s;
+    -ms-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    transition: all 0.5s ease-in-out 0s;
+}
+
+
+::-moz-selection {
+    background: #b8a07e;
+    color: #fff;
+}
+
+::selection {
+    background: #b8a07e;
+    color: #fff;
+}
+
+
+
+.hvr-shutter-in-horizontal::before {
+    background: #333;
+}
+
+.hvr-shutter-in-horizontal:hover {
+    background: #b8a07e;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+
+/*----------------------------------------------------------------------------------*/
+/*  Header
+/*-----------------------------------------------------------------------------------*/
+
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+}
+
+/* Navigation
+---------------------------------*/
+
+.main-nav-outer {
+    
+    padding: 0px;
+    border-bottom: 1px solid #dddddd;
+    box-shadow: 0 4px 5px -3px #ececec;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+}
+
+.main-nav {
+    text-align: center;
+    margin: 10px 0 0px;
+    margin-left: 50px;
+    padding: 0;
+    list-style: none;
+}
+
+    .main-nav li {
+        display: inline;
+        margin: 0 1px;
+    }
+
+@media screen and (max-width: 1200px) {
+    .main-nav li {
+        /*display: block;*/
+        margin: 0 1px;
+    }
+}
+
+
+
+.main-nav li a {
+    display: inline-block;
+    color: #222222;
+    text-transform: uppercase;
+    /*font-family: 'B Yekan', 'B Koodak',Tahoma;*/
+    text-decoration: none;
+    line-height: 20px;
+    padding: 5px 5px;
+    margin: 17px 28px;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+    .main-nav li a:hover {
+        text-decoration: none;
+        /*color:white;*/
+        /*background-size: 50px;*/
+        transition: background-color linear 1s;
+        background-color: #FF4500;
+        /*border-radius:5px;*/
+        border-radius: 7px;
+    }
+
+.small-logo {
+    padding: 0 32px;
+}
+
+.main-section {
+    padding: 90px 0 110px;
+}
+
+
+/* Footer
+---------------------------------*/
+
+.footer {
+    background: url(../Images/pw_maze_black_2X.png) left top repeat;
+    padding: 35px 0 35px;
+}
+
+.footer-logo {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.copyright, .credits {
+    color: #cccccc;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+}
+
+    .copyright a, .credits a {
+        color: #FF4500;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+    }
+
+        .copyright a:hover, .credits a:hover {
+            color: #fff;
+        }
+
+/********baner*******/
+
+.mygenderbaner {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background: rgba(0,0,0,0.3);
+}
+
+/*<!--Style the buttons--!>*/
+.btn{
+    border:none;
+    outline:none;
+    padding:12px 16px;
+    background-color:white;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background-color:#ddd;
+}
+
+.btn.active{
+    background-color:#ff4500;
+    color:black;
+}
+
+
+
+/*-----portfolu-----*/
+/*// ========================================================================= //*/
+
+.row {
+    margin: 10px -16px;
+}
+
+    /*/ Add padding BETWEEN each column /*/
+    .row,
+    .row > .column {
+        padding: 8px;
+    }
+
+/*/ Create three equal columns that floats next to each other /*/
+.column {
+    float: left;
+    width: 33.33%;
+    display: none;
+    /*/ Hide all elements by default /*/
+}
+
+/*/ Clear floats after rows /*/
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*/ Content /*/
+.content {
+    background-color: white;
+    padding: 10px;
+}
+
+.container {
+    padding-left: 0px;
+    position: relative;
+    width: 100%;
+    padding-bottom: 0px;
+}
+
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.container:hover .image {
+    opacity: 0.3;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    padding-bottom: 250px;
+    /*top: 50%;
+    left: 50%;*/
+    transform: translate(-100%, -100%);
+    -ms-transform: translate(-100%, -100%);
+    text-align: center;
+}
+
+.container:hover .middle {
+    opacity: 1;
+}
+
+.text {
+    background-color: #FF6E00;
+    color: black;
+    font-size: 16px;
+    padding: 12px 16px;
+    border-radius: 10px;
+}
+
+/*----------social----------*/
+
+.icon-bar {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+    .icon-bar a {
+        display: block;
+        text-align: center;
+        padding: 16px;
+        transition: all 0.3s ease;
+        color: white;
+        font-size: 20px;
+        background-color: #FF6E00;
+    }
+
+        .icon-bar a:hover {
+            background-color: #000;
+            color: white;
+        }
+
+
+
+
+
+
+
+
