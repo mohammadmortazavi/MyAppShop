@@ -146,6 +146,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\Account\log1.jpg" />
     <Content Include="images\Logo\logo.png" />
+    <Content Include="images\pw_maze_black_2X.png" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -176,6 +177,10 @@
     <Content Include="Views\UserAddresses\Edit.cshtml" />
     <Content Include="Views\UserAddresses\Index.cshtml" />
     <Content Include="Views\UserPanel\ChangePassword.cshtml" />
+    <Content Include="Views\Home\Genders.cshtml" />
+    <Content Include="Views\Home\Call.cshtml" />
+    <Content Include="Views\Shared\_LayoutGender.cshtml" />
+    <Content Include="Views\Gender\Index.cshtml" />
     <None Include="Web References\MyAppSmsService\Send.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -188,6 +193,7 @@
     <Compile Include="Areas\AdminPanel\Controllers\GenderGategoriesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\SocialNetworksController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\UsersController.cs" />
+    <Compile Include="Controllers\GenderController.cs" />
     <Compile Include="Controllers\UserAddressesController.cs" />
     <Compile Include="Models\GenderGategory.cs" />
     <Compile Include="Models\SocialNetwork.cs" />

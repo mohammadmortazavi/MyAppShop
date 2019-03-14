@@ -1,0 +1,6 @@
+﻿@model IEnumerable<MyApp.Models.GenderGategory>
+
+@foreach( var item in Model)
+{
+    <li><a href="/Gender/Index/@item.Id">@item.Name</a></li>
+}

@@ -12,11 +12,13 @@
     <link href="~/Content/bootstrap-rtl.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/SiteStyle.css" rel="stylesheet" />
+
+    @using MyApp.Models
 </head>
 <body>
     <div>
         <video autoplay muted id="myVideo">
-            <source src="~/Videos/Fashion-Demo-2.mp4" type="video/mp4"  />
+            <source src="~/Videos/Fashion-Demo-2.mp4" type="video/mp4" />
         </video>
 
     </div>
@@ -26,14 +28,37 @@
         <nav class="main-nav-outer" id="test">
             <div class="container">
                 <ul class="main-nav">
-                    <li><a href="/">صفحه اصلی</a></li>
-                    <li><a href="/">ورود/ عضویت </a></li>
-                    <li><a href="/">تماس </a></li>
-                    <li class="small-logo"><a href="/"><img src="~/images/Logo/logo.png" alt="" style="width:130px;" /></a></li>
-                    <li><a href="/">زنانـه  </a></li>
-                    <li><a href="/">مردانـه  </a></li>
-                    <li><a href="/">بچگانـه </a></li>
+                    <li> <a href="/"> صفحه اصلی</a></li>
+                    @{
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            using (DatabaseContext db = new DatabaseContext())
+                            {
+                                var user = db.Users.FirstOrDefault(u => u.Mobile == User.Identity.Name);
+                                if (user.Roles.RoleName == "admin")
+                                {
+                                    <li><a href="/AdminPanel/Admin/Index">پنل مدیریت</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="/UserPanel/Index">پنل کاربری</a></li>
 
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <li><a href="/Account/Login">ورود/ عضویت </a></li>
+
+                        }
+                    }
+                    
+                    <li><a href="#" onclick='ShowCall()'>تماس </a></li>
+                    <li class="small-logo"><a href="/"><img src="~/images/Logo/logo.png" alt="" style="width:130px;" /></a></li>
+                    @*<li><a href="/">زنانـه  </a></li>
+                        <li><a href="/">مردانـه  </a></li>
+                        <li><a href="/">بچگانـه </a></li>*@
+                    @Html.Action("Genders", "Home")
                 </ul>
 
             </div>
@@ -45,9 +70,37 @@
         @RenderBody()
     </div>
 
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dissmiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div id="bodymodal" class="modal-body">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/bootstrap-rtl.min.js"></script>
     <script src="~/Scripts/SiteScript.js"></script>
+    <script>
+        function ShowCall() {
+            $.ajax({
+                url: "/Home/Call",
+                type: "Get",
+                data: {}
+            }).done(function (result) {
+                $('#myModal').modal('show');
+                $('#myModalHeader').html('');
+                $('#bodymodal').html(result);
+
+            });
+        }
+    </script>
 </body>
 </html>
