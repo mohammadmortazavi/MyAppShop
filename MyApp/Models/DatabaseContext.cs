@@ -15,12 +15,13 @@ namespace MyApp.Models
         public DbSet <User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserAddress> UserAddresses { get; set; }
-
         public DbSet<Setting>Settings { get; set; }
-
-
         public DbSet<SocialNetwork> SocialNetworks { get; set; }
         public DbSet<GenderGategory> GenderGategories { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+
 
     }
 

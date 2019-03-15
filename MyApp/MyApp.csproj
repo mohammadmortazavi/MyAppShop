@@ -195,7 +195,10 @@
     <Compile Include="Areas\AdminPanel\Controllers\UsersController.cs" />
     <Compile Include="Controllers\GenderController.cs" />
     <Compile Include="Controllers\UserAddressesController.cs" />
+    <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\GenderGategory.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\SocialNetwork.cs" />
     <Compile Include="Classes\MyAppProvider.cs" />
     <Compile Include="Classes\SmsSender.cs" />
