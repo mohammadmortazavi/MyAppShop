@@ -130,7 +130,6 @@
     <Content Include="Areas\AdminPanel\Views\Admin\SmsSetting.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Admin\FactorSetting.cshtml" />
     <Content Include="Areas\AdminPanel\Views\SocialNetworks\Create.cshtml" />
-    <Content Include="Areas\AdminPanel\Views\SocialNetworks\Details.cshtml" />
     <Content Include="Areas\AdminPanel\Views\SocialNetworks\Edit.cshtml" />
     <Content Include="Areas\AdminPanel\Views\SocialNetworks\Index.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Users\Create.cshtml" />
@@ -139,6 +138,12 @@
     <Content Include="Areas\AdminPanel\Views\Users\ShowAddress.cshtml" />
     <Content Include="Areas\AdminPanel\Views\GenderGategories\Edit.cshtml" />
     <Content Include="Areas\AdminPanel\Views\GenderGategories\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Products\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Products\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\ProductCategories\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\ProductCategories\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\ProductCategories\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -191,6 +196,8 @@
     <Compile Include="Areas\AdminPanel\AdminPanelAreaRegistration.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\AdminController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\GenderGategoriesController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\ProductCategoriesController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\ProductsController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\SocialNetworksController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\UsersController.cs" />
     <Compile Include="Controllers\GenderController.cs" />

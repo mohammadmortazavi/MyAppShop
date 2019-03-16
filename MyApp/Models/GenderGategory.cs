@@ -19,5 +19,7 @@ namespace MyApp.Models
         [MaxLength(100, ErrorMessage = "نباید بیشتر از {1} کارکتر باشد")]
 
         public string Img { get; set; }
+
+        public virtual ICollection<Product> Products{ get; set; }
     }
 }

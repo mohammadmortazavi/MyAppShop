@@ -17,5 +17,7 @@ namespace MyApp.Models
         public string Name { get; set; }
         [Display(Name = "نمایش / عدم نمایش")]
         public bool IsShow { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; }
     }
 }
