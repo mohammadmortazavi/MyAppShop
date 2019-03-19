@@ -144,6 +144,10 @@
     <Content Include="Areas\AdminPanel\Views\ProductCategories\Create.cshtml" />
     <Content Include="Areas\AdminPanel\Views\ProductCategories\Edit.cshtml" />
     <Content Include="Areas\AdminPanel\Views\ProductCategories\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Products\Details.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Brands\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Brands\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Brands\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -195,6 +199,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\AdminPanel\AdminPanelAreaRegistration.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\AdminController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\BrandsController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\GenderGategoriesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\ProductCategoriesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\ProductsController.cs" />
@@ -252,6 +257,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AdminPanel\Models\" />
     <Folder Include="images\Banner\" />
+    <Folder Include="images\Brand\" />
+    <Folder Include="images\Product\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<MyApp.Models.Product>
 
 @{
-    ViewBag.Title = "نمایش پوشاک";
+    ViewBag.Title = "نمایش محصول";
     Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <div class="content">
     <h2 class="pull-right">
-        نمایش پوشاک
+        نمایش محصول
     </h2>
     <h2 class="pull-left">
         @Html.ActionLink("جدید", "Create", "", new { @class = "btn btn-success" })
@@ -18,6 +18,19 @@
 
 </div>
 <div class="content">
+    <div style="margin-bottom:30px;">
+        @using (Html.BeginForm())
+        {
+            <div style="margin-top:10px;">
+                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-8">
+                    @Html.TextBox("strsearch", "",new{ @class="form-control",placeholder="جستجو"})
+
+                </div>
+                <button type="submit" class="btn btn-success">جستجو</button>
+            </div>
+
+        }
+    </div>
 
 
     <table class="table table-hover">
@@ -34,12 +47,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Img)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Des)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.SalePrice)
             </th>
@@ -67,12 +75,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Img)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Des)
-                </td>
+                
                 <td>
                     @Html.DisplayFor(modelItem => item.SalePrice)
                 </td>
@@ -83,6 +86,7 @@
                     @Html.DisplayFor(modelItem => item.NumberSale)
                 </td>
                 <td>
+                    @Html.ActionLink("جزییات", "Details", new { id = item.Id }, new { @class = "btn-xs btn-info" }) |
                     @Html.ActionLink("ویرایش", "Edit", new { id = item.Id }, new { @class = "btn-xs btn-warning" }) |
                     @Html.ActionLink("حذف", "Delete", new { id = item.Id }, new { @class = "btn-xs btn-danger" })
                 </td>
