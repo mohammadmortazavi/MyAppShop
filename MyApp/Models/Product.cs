@@ -43,5 +43,10 @@ namespace MyApp.Models
 
         [ForeignKey("GenderCatId")]
         public virtual GenderGategory GenderGategories { get; set; }
+
+        public virtual ICollection<FactorDetail> FactorDetails { get; set; }
+        public virtual ICollection<Gallery> Galleries { get; set; }
+        public virtual ICollection<SizeColor> SizeColors { get; set; }
+
     }
 }

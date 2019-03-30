@@ -13,6 +13,28 @@
     <link href="~/Content/SiteStyle.css" rel="stylesheet" />
 </head>
 <body>
+    <form role="search" action="/Gender/Search" method="get">
+        <div style="margin-top:15px ; margin-left:10px;" >
+            <div class="col-lg-3 col-md-4 col-sm-5 col-xs-8">
+                @Html.TextBox("strsearch","",new  { @class="form-control",placeholder="جستجو..."})
+
+            </div>
+            <div>
+                <button type="submit" class="btn" style="background-color:#ff6e00 ;color:black">
+                    <span class="fa fa-search" style="margin-left:5px"></span>
+                    جستجو
+                </button>
+            </div>
+        </div>
+
+
+    </form>
+
+
+
+    <div class="icon-bar" style="z-index:1000">
+        @Html.Action("ShowSocial","Gender")
+    </div>
     <div>
         @RenderBody()
     </div>
@@ -25,7 +47,7 @@
 
 
             </div>
-            <span class="copyright">&cong;تماس حقوق این سایت مربوط بخ مزون فشن می باشد</span>
+            <span class="copyright">&cong; تماس حقوق این سایت مربوط به مرتضوی می باشد</span>
             <div class="credits">
                 طراحی و توسعه توسط <a href="Mohammad mortazavi"> محمد مرتضوی می باشد</a>
             </div>

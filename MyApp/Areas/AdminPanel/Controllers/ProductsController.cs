@@ -15,13 +15,30 @@ namespace MyApp.Areas.AdminPanel.Controllers
         private DatabaseContext db = new DatabaseContext();
 
         // GET: AdminPanel/Products
-        public ActionResult Index()
+        public ActionResult Index(string strsearch)
         {
-            var products = db.Products.Include(p => p.Brands).Include(p => p.GenderGategories).Include(p => p.ProductCategories);
+            var products = db.Products.Include(p => p.Brands).Include(p => p.GenderGategories).Include(p => p.ProductCategories).ToList();
+            if (!String.IsNullOrEmpty(strsearch))
+            {
+                products = products.Where(p => p.Name.Contains(strsearch) || p.Brands.Name.Contains(strsearch)).ToList();
+            }
             return View(products.ToList());
         }
 
-       
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Product product = db.Products.Find(id);
+            if (product==null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
 
         // GET: AdminPanel/Products/Create
         public ActionResult Create()
@@ -37,10 +54,17 @@ namespace MyApp.Areas.AdminPanel.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,GenderCatId,ProductCatId,BrnadId,Name,Img,Des,SalePrice,NumberSeen,NumberSale")] Product product)
+        public ActionResult Create([Bind(Include = "Id,GenderCatId,ProductCatId,BrnadId,Name,Img,Des,SalePrice,NumberSeen,NumberSale")] Product product , HttpPostedFileBase file1)
         {
             if (ModelState.IsValid)
             {
+                if (file1 !=null)
+                {
+                    Random rand = new Random();
+                    string imgcode = rand.Next(1000000, 9000000).ToString();
+                    file1.SaveAs(HttpContext.Server.MapPath("~/images/Product/") + imgcode.ToString() + "-" + file1.FileName);
+                    product.Img = imgcode.ToString() + "-" + file1.FileName;
+                }
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -74,11 +98,19 @@ namespace MyApp.Areas.AdminPanel.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,GenderCatId,ProductCatId,BrnadId,Name,Img,Des,SalePrice,NumberSeen,NumberSale")] Product product)
+        public ActionResult Edit([Bind(Include = "Id,GenderCatId,ProductCatId,BrnadId,Name,Img,Des,SalePrice,NumberSeen,NumberSale")] Product product, HttpPostedFileBase file1)
         {
             if (ModelState.IsValid)
             {
+                if (file1 != null)
+                {
+                    Random rand = new Random();
+                    string imgcode = rand.Next(1000000, 9000000).ToString();
+                    file1.SaveAs(HttpContext.Server.MapPath("~/images/Product/") + imgcode.ToString() + "-" + file1.FileName);
+                    product.Img = imgcode.ToString() + "-" + file1.FileName;
+                }
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

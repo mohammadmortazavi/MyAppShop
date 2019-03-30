@@ -39,5 +39,7 @@ namespace MyApp.Models
 
         public virtual ICollection<UserAddress> UserAddresses { get; set; }
 
+        public virtual ICollection<Factor> Factors { get; set; }
+
     }
 }
