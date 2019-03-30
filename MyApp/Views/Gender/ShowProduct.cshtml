@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MyApp.Models.Product>
+<div class="row">
+    @foreach(var item in Model)
+    {
+        <div class="column @item.ProductCategories.Name">
+            <div class="content">
+                <div class="container">
+                    <img src="~/images/Product/@item.Img" alt="" style="width:100%" class="image"/>
+                    <a href="#">
+                        <div class="middle">
+                            <div class="text-center">نمایش جزییات</div>
+                        </div>
+                        
+                    </a>
+                    <h4 class="text-center">1000$</h4>
+                    <p class="text-center">در 5 رنگه متنوع</p>
+
+                </div>
+            </div>
+
+        </div>
+    }
+</div>

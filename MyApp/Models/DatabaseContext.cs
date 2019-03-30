@@ -22,6 +22,13 @@ namespace MyApp.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<Brand> Brands { get; set; }
 
+        public DbSet<Factor> Factors { get; set; }
+
+        public DbSet<FactorDetail> FactorDetails { get; set; }
+        public DbSet<Gallery> Galleries { get; set; }
+        public DbSet<Color> Colors { get; set; }
+        public DbSet<Size> Sizes { get; set; }
+        public DbSet<SizeColor> SizeColors { get; set; }
 
     }
 

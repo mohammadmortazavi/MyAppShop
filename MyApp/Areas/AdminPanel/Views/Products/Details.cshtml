@@ -10,7 +10,7 @@
        جزییات محصول @Model.Name
     </h2>
     <h2 class="pull-left">
-        @Html.ActionLink("جدید", "Create", "", new { @class = "btn btn-success" })
+        @Html.ActionLink("بازگشت", "Index", "", new { @class = "btn btn-danger" })
 
     </h2>
 </div>
@@ -64,7 +64,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Des)
+            @Html.Raw(Model.Des)
         </dd>
 
         <dt>

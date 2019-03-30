@@ -1,0 +1,8 @@
+﻿@model IEnumerable<MyApp.Models.ProductCategory>
+<div id="myBtnContainer" style="text-align:center">
+    <button class="btn active" onclick="filterSelectin('all')">نمایش همه</button>
+    @foreach( var item in Model)
+    {
+        <button class="btn" onclick="filterSelectin('@item.Name')">@item.Name</button>
+    }
+</div>

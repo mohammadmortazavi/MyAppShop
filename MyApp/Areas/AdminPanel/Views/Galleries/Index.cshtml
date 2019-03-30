@@ -1,0 +1,109 @@
+﻿@model IEnumerable<MyApp.Models.Gallery>
+
+@{
+    ViewBag.Title = "نمایش اسلایدر";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content">
+    <h2 class="pull-right">
+        نمایش اسلایدر
+    </h2>
+    <a href="#" class="btn btn-success" onclick='SildeCreate(@ViewBag.myid)'>جدید</a>
+    @*<h2 class="pull-left">
+        @Html.ActionLink("جدید", "Create", "", new { @class = "btn btn-success" })
+
+    </h2>*@
+
+</div>
+<div class="clearfix" style="margin-bottom:50px;">
+
+</div>
+<div class="content">
+
+
+    <table class="table table-hover">
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Products.Name)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Img)
+            </th>
+            <th>عملیات</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Products.Name)
+                </td>*@
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Img)*@
+                    <img src="~/images/Product/@item.Img" class="img-responsive" width="40"height="40"/>
+                </td>
+                <td>
+                    <a href="#" class="btn-xs btn-warning" onclick='SildeEdit(@item.Id)'>ویرایش</a>
+                    @*@Html.ActionLink("ویرایش", "Edit", new { id = item.Id }, new { @class = "btn-xs btn-warning" }) |*@
+                    @Html.ActionLink("حذف", "Delete", new { id = item.Id }, new { @class = "btn-xs btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+
+            <div id="bodymodal" class="modal-body">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section editorscripts
+{
+    <script>
+        function SlideCreate(id) {
+            $.ajax({
+                url: "/AdminPanel/Galleries/Create/" + id,
+                type: "Get",
+                data: {}
+            }).done(function (result) {
+                $('#myModal').modal('show');
+                $('#myModalHeader').html('');
+                $('#bodymodal').html(result);
+            });
+        }
+
+        function SlideEdit(id) {
+            $.ajax({
+                url: "/AdminPanel/Galleries/Edit/" + id,
+                type: "Get",
+                data: {}
+            }).done(function (result) {
+                $('#myModal').modal('show');
+                $('#myModalHeader').html('');
+                $('#bodymodal').html(result);
+            });
+        }
+
+        $('#myModal').on('hidden.bs.modal', function () {
+            location.reload();
+        })
+    </script>
+
+}

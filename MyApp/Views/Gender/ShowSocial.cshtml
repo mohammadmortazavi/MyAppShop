@@ -1,0 +1,9 @@
+﻿@model IEnumerable<MyApp.Models.SocialNetwork>
+
+@foreach(var item in Model)
+{
+    <a href="@item.Link" target="_blank">
+        <li class="fa fa-@item.Img"></li>
+
+    </a>
+}

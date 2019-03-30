@@ -17,7 +17,7 @@ namespace MyApp.Models
 
         public string Name { get; set; }
         [Display(Name = "تصویر برند")]
-        [MaxLength(30, ErrorMessage = "نباید بیشتر از {1} کارکتر باشد")]
+        [MaxLength(100, ErrorMessage = "نباید بیشتر از {1} کارکتر باشد")]
 
         public string Img { get; set; }
 
