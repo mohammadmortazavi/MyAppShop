@@ -1251,7 +1251,6 @@
     <Content Include="Areas\AdminPanel\Views\ProductCategories\Create.cshtml" />
     <Content Include="Areas\AdminPanel\Views\ProductCategories\Edit.cshtml" />
     <Content Include="Areas\AdminPanel\Views\ProductCategories\Index.cshtml" />
-    <Content Include="Areas\AdminPanel\Views\Products\Details.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Brands\Create.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Brands\Edit.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Brands\Index.cshtml" />
@@ -1286,6 +1285,10 @@
     <Content Include="Areas\AdminPanel\Views\Galleries\Create.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Galleries\Edit.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Galleries\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Sizes\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Sizes\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Sizes\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Products\Details.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1347,6 +1350,7 @@
     <Compile Include="Areas\AdminPanel\Controllers\GenderGategoriesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\ProductCategoriesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\SizesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\SocialNetworksController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\UsersController.cs" />
     <Compile Include="Controllers\GenderController.cs" />

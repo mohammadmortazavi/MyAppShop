@@ -36,7 +36,7 @@ namespace MyApp.Areas.AdminPanel.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ProductId,Img")] Gallery gallery,HttpPostedFileBase file1,int Id)
+        public ActionResult Create([Bind(Include = "Id,ProductId,Img")] Gallery gallery,HttpPostedFileBase file1,int? Id)
         {
             
             if (ModelState.IsValid)
@@ -44,14 +44,14 @@ namespace MyApp.Areas.AdminPanel.Controllers
                 if (file1 != null)
                 {
                     Random rand = new Random();
-                    string imgcode = rand.Next(100000, 90000).ToString();
-                    file1.SaveAs(HttpContext.Server.MapPath("~/images/Product") + imgcode.ToString() + "-" + file1.FileName);
+                    string imgcode = rand.Next(100000, 900000).ToString();
+                    file1.SaveAs(HttpContext.Server.MapPath("~/images/Product/") + imgcode.ToString() + "-" + file1.FileName);
                     gallery.Img = imgcode.ToString() + "-" + file1.FileName;
 
                 }
                 db.Galleries.Add(gallery);
                 db.SaveChanges();
-                return RedirectToAction("/AdminPanel/Galleries/Index" +Id);
+                return Redirect("/AdminPanel/Galleries/Index/" + Id);
             }
 
             ViewBag.ProductId = new SelectList(db.Products.Where(g=>g.Id==Id).ToList(), "Id", "Name", gallery.ProductId);
@@ -70,7 +70,7 @@ namespace MyApp.Areas.AdminPanel.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ProductId = new SelectList(db.Products.Where(g => g.Id ==gallery.ProductId).ToList(), "Id", "Name", gallery.ProductId);
+            ViewBag.ProductId = new SelectList(db.Products.Where(g => g.Id==gallery.ProductId).ToList(), "Id", "Name", gallery.ProductId);
             return PartialView(gallery);
         }
 
@@ -79,33 +79,33 @@ namespace MyApp.Areas.AdminPanel.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ProductId,Img")] Gallery gallery,HttpPostedFile file1 , int Id)
+        public ActionResult Edit([Bind(Include = "Id,ProductId,Img")] Gallery gallery, HttpPostedFileBase file1 , int? Id)
         {
             if (ModelState.IsValid)
             {
                 if (file1 != null)
                 {
                     Random rand = new Random();
-                    string imgcode = rand.Next(100000, 90000).ToString();
-                    file1.SaveAs(HttpContext.Server.MapPath("~/images/Product") + imgcode.ToString() + "-" + file1.FileName);
+                    string imgcode = rand.Next(100000, 900000).ToString();
+                    file1.SaveAs(HttpContext.Server.MapPath("~/images/Product/") + imgcode.ToString() + "-" + file1.FileName);
                     gallery.Img = imgcode.ToString() + "-" + file1.FileName;
 
                 }
                 db.Entry(gallery).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("/AdminPanel/Galleries/Index" + gallery.ProductId);
+                return Redirect("/AdminPanel/Galleries/Index/" + gallery.ProductId);
             }
             ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", gallery.ProductId);
             return PartialView(gallery);
         }
 
         // GET: AdminPanel/Galleries/Delete/5
-        public ActionResult Delete(int? id , int gid)
+        public ActionResult Delete(int? id , int? gid)
         {
             Gallery gallery = db.Galleries.Find(id);
             db.Galleries.Remove(gallery);
             db.SaveChanges();
-            return RedirectToAction("/AdminPanel/Galleries/Index" +gid);
+            return Redirect("/AdminPanel/Galleries/Index/" + gid);
         }
 
     
