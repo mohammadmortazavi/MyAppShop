@@ -5,42 +5,106 @@
     Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
+<div class="content">
+    <h2 class="pull-right">
+        نمایش سایز / رنگ
+    </h2>
+    <h2 class="pull-left">
+        <a href="#" class="btn btn-success" onclick='SildeCreate(@ViewBag.myid)'>جدید</a>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Colors.NameColor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Prodcuts.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sizes.NameSize)
-        </th>
-        <th></th>
-    </tr>
+        @*@Html.ActionLink("جدید", "Create", "", new { @class = "btn btn-success" })*@
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Colors.NameColor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prodcuts.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sizes.NameSize)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+    </h2>
+
+</div>
+<div class="clearfix" style="margin-bottom:50px;">
+
+</div>
+<div class="content">
+
+
+    <table class="table table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Colors.NameColor)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Sizes.NameSize)
+            </th>
+            <th>عملیات</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Colors.NameColor)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sizes.NameSize)
+                </td>
+                <td>
+                    <a href="#" class="btn-xs btn-warning" onclick='SildeEdit(@item.Id)'>ویرایش</a>
+                    @*@Html.ActionLink("ویرایش", "Edit", new { id = item.Id }, new { @class = "btn-xs btn-warning" }) |*@
+                    @Html.ActionLink("حذف", "Delete", new { id = item.Id }, new { @class = "btn-xs btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+
+            <div id="bodymodal" class="modal-body">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section editorscripts
+{
+    <script>
+        function SildeCreate(id) {
+            $.ajax({
+                url: "/AdminPanel/SizeColors/Create/" + id,
+                type: "Get",
+                data: {}
+            }).done(function (result) {
+                $('#myModal').modal('show');
+                $('#myModalHeader').html('');
+                $('#bodymodal').html(result);
+            });
+        }
+
+        function SildeEdit(id) {
+            $.ajax({
+                url: "/AdminPanel/SizeColors/Edit/" + id,
+                type: "Get",
+                data: {}
+            }).done(function (result) {
+                $('#myModal').modal('show');
+                $('#myModalHeader').html('');
+                $('#bodymodal').html(result);
+            });
+        }
+
+        $('#myModal').on('hidden.bs.modal', function () {
+            location.reload();
+        })
+    </script>
+
 }
-
-</table>

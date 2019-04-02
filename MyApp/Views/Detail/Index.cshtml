@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+}
+
+<section id="subintro">
+    <div class="container">
+        <div class="row">
+            <div class="fa-span8 col-lg-12">
+                <a class="pull-right a-top-orange" href="#">
+                    افزودن سبد خرید
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="maincontent">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <article>
+                    <div class="span4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <aside>
+                            <div class="widget">
+                                <div class="project-widget">
+                                    <h4 class="rheading">
+                                        جزییات محصول
+                                        <span></span></h4>
+                                    <ul class="project-detail">
+                                        <hr  class="hrStyle"/>
+                                        <li>
+                                            <label style="float:left; margin-right:10px;">سایز های موجود :</label>
+
+                                        </li>
+                                        <br />
+                                        <hr class="hrStyle" />
+                                        <li>
+                                            <label style="float:left; margin-right:10px;">رنگ های موجود :</label>
+
+                                        </li>
+                                        <br />
+
+                                        <hr class="hrStyle" />
+                                        <li>
+                                            <label style="float:left; margin-right:10px;">  قیمت :</label>
+
+                                        </li>
+                                        <br />
+
+                                        <hr class="hrStyle" />
+                                        <li>
+                                            <label style="float:left; margin-right:10px;">محصولات  ییشنهادی :</label>
+
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+
+                    <div class="span4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        @Html.Action("Gallery","Detail" , new { @Id=ViewBag.proId})
+
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="des1">
+    <p>
+        <h4>
+            ویژگی محصول:
+        </h4>
+        <h5>
+            جنس این محصول صد در صد نخی می باشد
+        </h5>
+    </p>
+
+</div>

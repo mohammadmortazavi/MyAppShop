@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MyApp.Models.Gallery>
+    <div class="clearfix"></div>
+
+<div class="span8">
+    <div class="flexslider">
+        <div class="heading">
+            <h4>
+                @ViewBag.proname
+            </h4>
+
+        </div>
+        <ul class="slides">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <img src="~/images/Product/@item.Img" alt=""/>
+                </li>
+            }
+        </ul>
+        <ul class="flex-direction-nav">
+
+            <li class="flex-nav-prev">
+                <a class="flex-prev" href="#">Previous</a>
+
+            </li>
+
+            <li class="flex-nav-next">
+                <a class="flex-next" href="#">Next</a>
+
+            </li>
+
+        </ul>
+    </div>
+
+</div>

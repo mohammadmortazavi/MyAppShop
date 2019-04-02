@@ -1214,6 +1214,8 @@
     <Content Include="Content\bootstrap-rtl.min.css" />
     <Content Include="Content\bootstrap-theme-rtl.css" />
     <Content Include="Content\bootstrap-theme-rtl.min.css" />
+    <Content Include="Content\DetailStyle.css" />
+    <Content Include="Content\flexslider.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\SiteStyle.css" />
@@ -1298,8 +1300,10 @@
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\Account\log1.jpg" />
+    <Content Include="images\bg_direction_nav.png" />
     <Content Include="images\Logo\logo.png" />
     <Content Include="images\pw_maze_black_2X.png" />
+    <Content Include="Scripts\DetailScript.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -1309,6 +1313,9 @@
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-hover-effect.js" />
+    <Content Include="Scripts\jquery.flexslider.js" />
+    <Content Include="Scripts\jquery.prettyPhoto.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1338,6 +1345,9 @@
     <Content Include="Views\Gender\ShowProduct.cshtml" />
     <Content Include="Views\Gender\ShowSocial.cshtml" />
     <Content Include="Views\Gender\Search.cshtml" />
+    <Content Include="Views\Shared\_LayoutDetail.cshtml" />
+    <Content Include="Views\Detail\Index.cshtml" />
+    <Content Include="Views\Detail\Gallery.cshtml" />
     <None Include="Web References\MyAppSmsService\Send.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1357,6 +1367,7 @@
     <Compile Include="Areas\AdminPanel\Controllers\SizesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\SocialNetworksController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\UsersController.cs" />
+    <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\GenderController.cs" />
     <Compile Include="Controllers\UserAddressesController.cs" />
     <Compile Include="Models\Brand.cs" />
