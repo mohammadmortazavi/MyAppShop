@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MyApp.Models.SizeColor>
+@using MyApp.Models
+
+<li>
+    <label style="float:left; margin-right:10px;">رنگ های موجود :</label>
+    @{
+        DatabaseContext db = new DatabaseContext();
+        var colormodel = db.Colors.ToList();
+
+    }
+    @foreach (var item in Model)
+    {
+        foreach (var item2 in colormodel)
+        {
+            if (item.ColorId==item2.Id)
+            {
+                <div class="NameColor" style="background-color:@item2.LatinName.ToString();">
+                    
+                </div>
+            }
+
+        }
+    }
+
+</li>
+<br />
+<hr class="hrStyle"/>

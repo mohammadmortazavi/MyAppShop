@@ -33,31 +33,30 @@
                                         جزییات محصول
                                         <span></span></h4>
                                     <ul class="project-detail">
-                                        <hr  class="hrStyle"/>
+                                        @*<hr  class="hrStyle"/>
                                         <li>
                                             <label style="float:left; margin-right:10px;">سایز های موجود :</label>
 
-                                        </li>
-                                        <br />
-                                        <hr class="hrStyle" />
+                                        </li>*@
+
+                                        @Html.Action("Size" , "Detail", new { @Id = ViewBag.proId })
+                                       
+                                        @Html.Action("Color", "Detail", new { @Id = ViewBag.proId })
+                                       
+                                       
+
+                                        
                                         <li>
-                                            <label style="float:left; margin-right:10px;">رنگ های موجود :</label>
+                                            <label style="float:left; margin-right:10px;">   تومان : قیمت</label>
+                                            <p>@ViewBag.price</p>
 
                                         </li>
-                                        <br />
+                                        
 
-                                        <hr class="hrStyle" />
-                                        <li>
-                                            <label style="float:left; margin-right:10px;">  قیمت :</label>
+                                       @Html.Action("Pishnahadi", "Detail", new { @Id = ViewBag.proId })
 
-                                        </li>
-                                        <br />
 
-                                        <hr class="hrStyle" />
-                                        <li>
-                                            <label style="float:left; margin-right:10px;">محصولات  ییشنهادی :</label>
 
-                                        </li>
 
                                     </ul>
                                 </div>
@@ -85,7 +84,7 @@
             ویژگی محصول:
         </h4>
         <h5>
-            جنس این محصول صد در صد نخی می باشد
+            @Html.Raw(ViewBag.descrip)
         </h5>
     </p>
 

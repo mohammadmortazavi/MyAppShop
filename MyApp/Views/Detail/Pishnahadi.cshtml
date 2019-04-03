@@ -1,0 +1,13 @@
+﻿@model IEnumerable<MyApp.Models.Product>
+
+<hr class="hrStyle" />
+<li>
+    <label style="float:left; margin-right:10px;">محصولات  ییشنهادی :</label>
+    @foreach (var item in Model)
+    {
+        <a href="#">
+            <img class="pishnahadi" src="~/images/Product/@item.Img"  />
+        </a>
+    }
+
+</li>

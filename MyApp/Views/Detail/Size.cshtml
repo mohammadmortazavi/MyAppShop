@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MyApp.Models.SizeColor>
+
+@using MyApp.Models
+<hr class="hrStyle" />
+<li>
+    <label style="float:left; margin-right:10px;">سایز های موجود :</label>
+
+    @{
+        DatabaseContext db = new DatabaseContext();
+        var sizemodel = db.Sizes.ToList();
+    }
+        @foreach (var item in Model)
+        {
+            foreach (var item2 in sizemodel)
+            {
+                if (item.SizeId==item2.Id)
+                {
+                    <div class="NameSize">
+                        @item2.NameSize
+
+                    </div>
+
+                }
+            }
+
+        }
+    
+
+</li>
+<hr class="hrStyle" />

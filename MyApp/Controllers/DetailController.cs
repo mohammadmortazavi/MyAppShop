@@ -13,7 +13,10 @@ namespace MyApp.Controllers
         // GET: Detail
         public ActionResult Index(int? id)
         {
+            var product = db.Products.Find(id);
             ViewBag.proId = id;
+            ViewBag.price = product.SalePrice.ToString("n0");
+            ViewBag.descrip = product.Des.ToString();
             return View();
         }
         public  ActionResult Gallery(int? id)
@@ -23,6 +26,28 @@ namespace MyApp.Controllers
             var gallery = db.Galleries.Where(g => g.ProductId == id).ToList();
             return PartialView(gallery);
 
+        }
+
+        public  ActionResult Size(int? id)
+        {
+            var size = db.SizeColors.Where(s => s.ProductId == id);
+            size = size.GroupBy(s => s.SizeId).Select(s => s.FirstOrDefault());
+            return PartialView(size.ToList());
+        }
+        public ActionResult Color(int ? id)
+        {
+            var color = db.SizeColors.Where(s => s.ProductId == id);
+            color = color.GroupBy(s => s.ColorId).Select(c => c.FirstOrDefault());
+            return PartialView(color.ToList());
+        }
+        public ActionResult Pishnahadi(int ? id)
+        {
+            var pro = db.Products.Find(id);
+            var pishnahad = db.Products.Where(p => p.Id != id &&
+            p.ProductCategories.IsShow== true &&
+            p.ProductCatId==pro.ProductCatId &&
+            p.GenderCatId==pro.GenderCatId).OrderBy(p=>Guid.NewGuid()).Take(3);
+            return PartialView(pishnahad.ToList());
         }
     }
 }

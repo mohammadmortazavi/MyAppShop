@@ -1348,6 +1348,9 @@
     <Content Include="Views\Shared\_LayoutDetail.cshtml" />
     <Content Include="Views\Detail\Index.cshtml" />
     <Content Include="Views\Detail\Gallery.cshtml" />
+    <Content Include="Views\Detail\Size.cshtml" />
+    <Content Include="Views\Detail\Color.cshtml" />
+    <Content Include="Views\Detail\Pishnahadi.cshtml" />
     <None Include="Web References\MyAppSmsService\Send.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
