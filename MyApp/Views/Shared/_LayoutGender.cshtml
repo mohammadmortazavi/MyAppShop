@@ -12,15 +12,15 @@
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/SiteStyle.css" rel="stylesheet" />
 </head>
-<body>
-    <form role="search" action="/Gender/Search" method="get">
+<body >
+    <form  role="search" action="/Gender/Search" method="get">
         <div style="margin-top:15px ; margin-left:10px;" >
             <div class="col-lg-3 col-md-4 col-sm-5 col-xs-8">
                 @Html.TextBox("strsearch","",new  { @class="form-control",placeholder="جستجو..."})
 
             </div>
             <div>
-                <button type="submit" class="btn" style="background-color:#ff6e00 ;color:black">
+                <button type="submit" class="btn" style="background-color:rgba(250, 244, 240, 0.00) ;color:black">
                     <span class="fa fa-search" style="margin-left:5px"></span>
                     جستجو
                 </button>

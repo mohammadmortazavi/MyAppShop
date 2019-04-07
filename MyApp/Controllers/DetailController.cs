@@ -14,6 +14,8 @@ namespace MyApp.Controllers
         public ActionResult Index(int? id)
         {
             var product = db.Products.Find(id);
+            product.NumberSeen = product.NumberSeen + 1;
+            db.SaveChanges();
             ViewBag.proId = id;
             ViewBag.price = product.SalePrice.ToString("n0");
             ViewBag.descrip = product.Des.ToString();
@@ -49,5 +51,6 @@ namespace MyApp.Controllers
             p.GenderCatId==pro.GenderCatId).OrderBy(p=>Guid.NewGuid()).Take(3);
             return PartialView(pishnahad.ToList());
         }
+
     }
 }

@@ -5,7 +5,7 @@
     <label style="float:left; margin-right:10px;">محصولات  ییشنهادی :</label>
     @foreach (var item in Model)
     {
-        <a href="#">
+        <a href="/Detail/Index/@item.Id" target="_blank">
             <img class="pishnahadi" src="~/images/Product/@item.Img"  />
         </a>
     }

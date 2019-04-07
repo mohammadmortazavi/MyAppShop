@@ -1300,9 +1300,11 @@
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\Account\log1.jpg" />
+    <Content Include="images\basket.jpg" />
     <Content Include="images\bg_direction_nav.png" />
     <Content Include="images\Logo\logo.png" />
     <Content Include="images\pw_maze_black_2X.png" />
+    <Content Include="images\sabad.png" />
     <Content Include="Scripts\DetailScript.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1351,6 +1353,9 @@
     <Content Include="Views\Detail\Size.cshtml" />
     <Content Include="Views\Detail\Color.cshtml" />
     <Content Include="Views\Detail\Pishnahadi.cshtml" />
+    <Content Include="Views\UserPanel\Sale.cshtml" />
+    <Content Include="Views\UserPanel\CountShopingCart.cshtml" />
+    <Content Include="Views\UserPanel\ShopingCart.cshtml" />
     <None Include="Web References\MyAppSmsService\Send.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

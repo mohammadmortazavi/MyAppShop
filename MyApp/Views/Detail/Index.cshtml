@@ -8,10 +8,9 @@
     <div class="container">
         <div class="row">
             <div class="fa-span8 col-lg-12">
-                <a class="pull-right a-top-orange" href="#">
-                    افزودن سبد خرید
-                </a>
+                <a class="pull-right a-top-orange" href="#" onclick='Sale(@ViewBag.proId)'> افزودن سبد خرید</a>
 
+                @Html.Action("CountShopingCart" , "UserPanel")
             </div>
 
         </div>
@@ -89,3 +88,43 @@
     </p>
 
 </div>
+
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+
+            <div id="bodymodal" class="modal-body">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section myscript
+{
+    
+<script>
+    function Sale(id) {
+            $.ajax({
+                url: "/UserPanel/Sale/" + id,
+                type: "Get",
+                data: {}
+            }).done(function (result) {
+                $('#myModal').modal('show');
+                $('#myModalHeader').html('');
+                $('#bodymodal').html(result);
+
+            });
+        }
+</script>
+}

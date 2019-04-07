@@ -100,4 +100,10 @@ namespace MyApp.Models
         [Compare("Password", ErrorMessage = "کلمه عبور همخانی ندارد")]
         public string RePassword { get; set; }
     }
+    public class SaleViweModel
+    {
+        [Display(Name = "تعداد سفارش")]
+
+        public int SaleCount { get; set; }
+    }
 }
