@@ -1,0 +1,56 @@
+﻿@using MyApp.Classes
+@model MyApp.Models.Factor
+@{
+    ViewBag.Title = "RedirectVPOS";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+}
+
+<div class="col-lg-6 col-lg-offset-3 col-md-6 col-lg-offset-3 col-sm-8 col-sm-2 col-xs-10 col-xs-offset-1">
+    <h3>
+        تایید فاکتور و پرداخت
+    </h3>
+    <br />
+    <p>
+        با تمام کارت های بانکی عضو شتاب می توانید آنلاین پرداخت کنید
+    </p>
+    <br/>
+    <table class="table table-hover">
+        <tr>
+            <th>
+                شماره فاکتور
+            </th>
+
+            <th>
+                درگاه پرداخت
+            </th>
+
+            <th>
+                مبلغ قابل پرداخت
+            </th>
+
+            <th>
+                وضعیت پرداخت
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Model.NumberFactor
+            </td>
+            <td>
+               به پرداخت ملت
+            </td>
+            <td>
+                @Model.SumPrice.ToString("n0")
+            </td>
+            <td>
+               پرداخت نشده
+            </td>
+        </tr>
+    </table>
+    <br />
+    <form action='@BankMellat.PgwSite' name="formBank" id="formBank" method="post">
+        <input type="hidden" name="RefId" id="RefId" value="@ViewBag.id" />
+        <input type="submit" value="پرداخت" />
+    </form>
+</div>
+

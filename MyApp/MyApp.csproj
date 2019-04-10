@@ -1294,6 +1294,8 @@
     <Content Include="Areas\AdminPanel\Views\SizeColors\Create.cshtml" />
     <Content Include="Areas\AdminPanel\Views\SizeColors\Edit.cshtml" />
     <Content Include="Areas\AdminPanel\Views\SizeColors\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Factor\ShowFactor.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Factor\FactorDetail.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1301,6 +1303,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\Account\log1.jpg" />
     <Content Include="images\basket.jpg" />
+    <Content Include="images\basket2.jpg" />
     <Content Include="images\bg_direction_nav.png" />
     <Content Include="images\Logo\logo.png" />
     <Content Include="images\pw_maze_black_2X.png" />
@@ -1356,6 +1359,17 @@
     <Content Include="Views\UserPanel\Sale.cshtml" />
     <Content Include="Views\UserPanel\CountShopingCart.cshtml" />
     <Content Include="Views\UserPanel\ShopingCart.cshtml" />
+    <Content Include="Views\UserPanel\ShowFactor.cshtml" />
+    <Content Include="Views\Peyment\ShowError.cshtml" />
+    <Content Include="Views\Peyment\RedirectVPOS.cshtml" />
+    <Content Include="Views\UserPanel\Factor.cshtml" />
+    <Content Include="Views\UserPanel\FactorDetail.cshtml" />
+    <None Include="Web References\BankMellatService\IPaymentGateway.wsdl" />
+    <None Include="Web References\BankMellatService\PaymentGatewayImplService.wsdl" />
+    <Content Include="Web References\BankMellatService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <None Include="Web References\MyAppSmsService\Send.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1367,6 +1381,7 @@
     <Compile Include="Areas\AdminPanel\Controllers\AdminController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\BrandsController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\ColorsController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\FactorController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\GalleriesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\GenderGategoriesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\ProductCategoriesController.cs" />
@@ -1375,8 +1390,10 @@
     <Compile Include="Areas\AdminPanel\Controllers\SizesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\SocialNetworksController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\UsersController.cs" />
+    <Compile Include="Classes\BankMellat.cs" />
     <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\GenderController.cs" />
+    <Compile Include="Controllers\PeymentController.cs" />
     <Compile Include="Controllers\UserAddressesController.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Color.cs" />
@@ -1409,6 +1426,11 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\BankMellatService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\MyAppSmsService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -1454,6 +1476,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>MyApp_MyAppSmsService_Send</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://bpm.shaparak.ir/pgwchannel/services/pgw%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\BankMellatService\</RelPath>
+      <UpdateFromURL>https://bpm.shaparak.ir/pgwchannel/services/pgw%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MyApp_BankMellatService_PaymentGatewayImplService</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>

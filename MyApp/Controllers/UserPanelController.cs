@@ -161,10 +161,10 @@ namespace MyApp.Controllers
         {
             var user = db.Users.FirstOrDefault(u => u.Mobile == User.Identity.Name);
 
-            if (user !=null)
+            if (user != null)
             {
                 var factor = db.Factors.FirstOrDefault(f => f.UserId == user.Id && f.IsPay == false);
-                if (factor !=null)
+                if (factor != null)
                 {
                     var detail = db.FactorDetails.Where(d => d.factorId == factor.Id).ToList();
                     return View(detail);
@@ -187,6 +187,39 @@ namespace MyApp.Controllers
             return RedirectToAction("ShopingCart");
         }
 
+        public ActionResult ShowFactor()
+        {
+            var user = db.Users.FirstOrDefault(u => u.Mobile == User.Identity.Name);
+            if (user != null)
+            {
+                var setting = db.Settings.FirstOrDefault();
+                ViewBag.taxpercent = setting.TaxPercent;
+                ViewBag.sprice = setting.ServicePric;
+                ViewBag.sbprice = setting.ServiceBetween;
+                var factor = db.Factors.FirstOrDefault(f => f.UserId == user.Id && f.IsPay == false);
+                var detail = db.FactorDetails.Where(d => d.factorId == factor.Id).ToList();
+                return View(detail);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+
+
+        }
+        public ActionResult Factor()
+        {
+            var user = db.Users.FirstOrDefault(u => u.Mobile == User.Identity.Name);
+            var factor = db.Factors.Where(f => f.IsPay == true && f.UserId == user.Id).OrderByDescending(f => f.DatePay).ToList();
+            return View(factor);
+        }
+        public ActionResult FactorDetail( int ? id)
+        {
+            var user = db.Users.FirstOrDefault(u => u.Mobile == User.Identity.Name);
+            var detail = db.FactorDetails.Where(f => f.factorId == id).ToList();
+            return View(detail);
+        }
 
     }
 }

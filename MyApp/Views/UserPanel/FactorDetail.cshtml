@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MyApp.Models.FactorDetail>
+
+@{
+    ViewBag.Title = "جزییات فاکتور";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content">
+    <h2 class="pull-right">
+        جزییات فاکتور
+    </h2>
+</div>
+<div class="clearfix" style="margin-bottom:50px;">
+
+</div>
+<div class="content">
+
+
+    <table class="table table-hover">
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Factors.DateFactor)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Products.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tedad)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Factors.DateFactor)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Products.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tedad)
+                </td>
+                
+            </tr>
+        }
+
+    </table>
+    </div>

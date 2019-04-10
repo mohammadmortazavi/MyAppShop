@@ -32,5 +32,15 @@ namespace MyApp.Properties {
                 return ((string)(this["MyApp_MyAppSmsService_Send"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://bpm.shaparak.ir/pgwchannel/services/pgw")]
+        public string MyApp_BankMellatService_PaymentGatewayImplService {
+            get {
+                return ((string)(this["MyApp_BankMellatService_PaymentGatewayImplService"]));
+            }
+        }
     }
 }

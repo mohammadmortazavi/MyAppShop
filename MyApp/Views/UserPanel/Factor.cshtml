@@ -1,0 +1,94 @@
+﻿@model IEnumerable<MyApp.Models.Factor>
+
+@{
+    ViewBag.Title = "نمایش فاکتور";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content">
+    <h2 class="pull-right">
+        نمایش فاکتور
+    </h2>
+</div>
+<div class="clearfix" style="margin-bottom:50px;">
+
+</div>
+<div class="content">
+
+
+    <table class="table table-hover">
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.DateFactor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberFactor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SumItem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CutPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SumPrice)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.NumberControl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatePay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimePay)
+            </th>
+            <th>عملیات</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateFactor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberFactor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SumItem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CutPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tax)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SumPrice)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberControl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatePay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimePay)
+                </td>
+                <td>
+                    @Html.ActionLink("نمایش جزییات", "FactorDetail", new { id = item.Id }, new { @class = "btn-xs btn-info" })
+
+
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

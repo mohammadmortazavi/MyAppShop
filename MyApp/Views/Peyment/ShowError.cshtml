@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "نتیجه تراکنش";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+}
+
+<div style="min-height:100vh" class="col-lg-6 col-lg-offset-3 col-md-6 col-lg-offset-3 col-sm-8 col-sm-2 col-xs-10 col-xs-offset-1">
+    @{
+        if (TempData.Peek("Message") != null)
+        {
+            <br />
+            <h4 class="text-center">
+                شماره پیگیری تراکنش
+            </h4>
+            <br />
+            <h4 class="text-center">
+                @TempData.Peek("Message")
+
+            </h4>
+        }
+    }
+
+</div>

@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "ShopingCart";
     Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+    double total = 0;
 }
 
 
@@ -36,6 +37,7 @@
 
         @foreach (var item in Model)
         {
+            total = total + Convert.ToDouble(item.Products.SalePrice * item.Tedad);
             <tr>
                 @*<td>
                         @Html.DisplayFor(modelItem => item.Factors.DateFactor)
@@ -63,5 +65,11 @@
         }
 
     </table>
+    <div>
+        <a href="/UserPanel/ShowFactor/" class="btn pull-right showfactor">
+            نمایش فاکتور
+        </a>
+        <a class="btn pull-left showfactor">جمع کل :@total.ToString("n0")</a>
+    </div>
 </div>
 <div class="clearfix"></div>

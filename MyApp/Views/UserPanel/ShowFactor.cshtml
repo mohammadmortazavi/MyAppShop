@@ -1,0 +1,127 @@
+﻿@model IEnumerable<MyApp.Models.FactorDetail>
+
+@{
+    ViewBag.Title = "ShowFactor";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+    double total = 0;
+    double Tax = 0;
+    double Taxpericent = 0;
+    double ser = 0;
+    double Serviceprice = 0;
+
+    Tax = ViewBag.TaxPercent;
+    ser = ViewBag.sbprice;
+
+
+}
+
+<div>
+    <img src="~/images/basket2.jpg" class="img-responsive myshoppbaner" />
+</div>
+<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" style="direction:rtl;">
+    <h2 class="text-center" style="color:#ff6e00">
+        نمایش فاکتور
+
+    </h2><br />
+
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Products.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.SalePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tedad)
+            </th>
+            <th>جمع</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            total = total + Convert.ToDouble(item.Products.SalePrice * item.Tedad);
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Products.Name)
+                </td>
+                <td>
+                    <p>  @item.Products.SalePrice.ToString("n0")</p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tedad)
+                </td>
+                <td>
+                    <p>
+                        @Convert.ToDouble(item.Products.SalePrice * item.Tedad).ToString("n0")ریال
+                    </p>
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+    <div>
+        <table class="table">
+            <tr>
+                <th>جمع اجناس </th>
+
+
+                <th>مبلغ ارزش افزده </th>
+
+
+                <th>حمل کرایه  </th>
+
+
+                <th>جمع کل  </th>
+
+            </tr>
+
+            <tr>
+                <td>
+                    @total.ToString("n0")
+                </td>
+
+
+                <td>
+                    @if (Tax != 0)
+                    {
+                        Taxpericent = total * (Tax / 100);
+                    }
+                    else
+                    {
+                        Taxpericent = 0;
+                    }
+                    @Taxpericent.ToString("n0")
+
+                </td>
+                <td>
+                    @if (total < ser)
+                    {
+                        Serviceprice = ViewBag.sprice;
+                    }
+                    else
+                    {
+                        Serviceprice = 0;
+                    }
+                    @Serviceprice.ToString("n0")
+                </td>
+
+                <td>
+                    @Convert.ToDouble(Taxpericent + Serviceprice + total).ToString("n0")
+                </td>
+
+            </tr>
+
+        </table>
+    </div>
+    <div>
+        <a href="/Peyment/Index/" class="btn pull-right showfactor"> پرداخت انلاین </a>
+        <a href="/UserPanel/ShopingCart/" class="btn pull-left showfactor">بازگشت به سبد خرید </a>
+    </div>
+</div>
+<div class="clearfix"></div>
